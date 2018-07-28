@@ -1,3 +1,6 @@
 endpoint:
   welcome: welcomeApp2TEST
   goodby: goodbyApp2TEST
+
+server:
+  port: 8080
