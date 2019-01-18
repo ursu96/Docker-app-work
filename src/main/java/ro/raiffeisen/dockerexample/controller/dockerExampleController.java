@@ -19,7 +19,7 @@ public class dockerExampleController {
 
     @GetMapping(value = "/")
     public String getHome(){
-        String message = "Hello World!";
+        String message = "Hello World";
         log.info(message);
         return message;
     }

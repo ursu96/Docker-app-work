@@ -1,7 +1,6 @@
 package ro.raiffeisen.dockerexample.model;
 
 public class Angajat {
-
     private String nume;
     private String prenume;
     private int varsta;

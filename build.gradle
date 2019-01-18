@@ -40,5 +40,6 @@ task buildDocker(type: Docker) {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    compile group: 'org.springframework', name: 'spring-webmvc', version: '5.1.4.RELEASE'
 }
 
