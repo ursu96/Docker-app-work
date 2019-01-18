@@ -1,15 +1,12 @@
 package ro.raiffeisen.dockerexample.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Angajat {
     private String nume;
     private String prenume;
     private int varsta;
-
-    public Angajat(String nume, String prenume, int varsta) {
-        this.nume = nume;
-        this.prenume = prenume;
-        this.varsta = varsta;
-    }
 
     public String getNume() {
         return nume;

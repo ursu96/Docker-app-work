@@ -1,5 +1,6 @@
 package ro.raiffeisen.dockerexample.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ro.raiffeisen.dockerexample.main.DockerExampleApplication;
@@ -17,6 +18,9 @@ import java.util.logging.Logger;
 public class dockerExampleController {
     static Logger log = Logger.getLogger(DockerExampleApplication.class.getName());
 
+    @Autowired
+    private Angajat a;
+
     @GetMapping(value = "/")
     public String getHome(){
         String message = "Hello World";
@@ -26,10 +30,12 @@ public class dockerExampleController {
 
     @GetMapping(value = "/angajati")
     public List<Angajat> getAngajati(){
-        Angajat a1 = new Angajat("Ursulescu", "Alexandru", 22);
+        a.setNume("Ursulescu");
+        a.setPrenume("Alexandru");
+        a.setVarsta(22);
         List<Angajat> listaAngajati = new ArrayList<>();
-        listaAngajati.add(a1);
-        listaAngajati.add(a1);
+        listaAngajati.add(a);
+        listaAngajati.add(a);
 
         log.info("Numarul de angajati:" + listaAngajati.size());
         return listaAngajati;
