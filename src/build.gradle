@@ -1,0 +1,44 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.2.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("se.transmode.gradle:gradle-docker:1.2")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'docker'
+
+group = 'ro.raiffeisen'
+sourceCompatibility = '1.8'
+repositories {
+    mavenCentral()
+}
+
+task buildDocker(type: Docker) {
+   baseImage = "alm-dev.rbro.rbg.cc/docker-all/adoptopenjdk/openjdk8-openj9"
+   registry = "alm-dev.rbro.rbg.cc/rbro-docker/ursu/docker-training"
+   applicationName = "${rootProject.name}"
+   push = true
+   addFile {
+       from jar
+       rename {"${applicationName}.jar"}
+   }
+   
+   entryPoint(['java', '-jar', "/${rootProject.name}.jar"])
+   
+}
+
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+

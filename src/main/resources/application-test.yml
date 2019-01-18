@@ -1,6 +1,5 @@
-endpoint:
-  welcome: welcomeApp2TEST
-  goodby: goodbyApp2TEST
-
 server:
-  port: 8080
+  port: 6969
+
+logging:
+  file: logs/dockerDemoApp.log
