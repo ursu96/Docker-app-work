@@ -23,17 +23,15 @@ repositories {
 }
 
 task buildDocker(type: Docker) {
-   baseImage = "alm-dev.rbro.rbg.cc/docker-all/adoptopenjdk/openjdk8-openj9"
-   registry = "alm-dev.rbro.rbg.cc/rbro-docker/ursu/docker-training"
+   baseImage = "ursu96/docker-demo"
+   registry = "ursu96"
    applicationName = "${rootProject.name}"
    push = true
    addFile {
        from jar
        rename {"${applicationName}.jar"}
    }
-   
    entryPoint(['java', '-jar', "/${rootProject.name}.jar"])
-   
 }
 
 
