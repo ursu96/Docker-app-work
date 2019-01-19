@@ -23,7 +23,7 @@ repositories {
 }
 
 task buildDocker(type: Docker) {
-   baseImage = "ursu96/docker-demo"
+   baseImage = "ursu96/jdk-starter"
    registry = "ursu96"
    applicationName = "${rootProject.name}"
    push = true
