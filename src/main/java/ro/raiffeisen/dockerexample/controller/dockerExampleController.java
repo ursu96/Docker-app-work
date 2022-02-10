@@ -21,7 +21,7 @@ public class dockerExampleController {
     @Autowired
     private Angajat a;
 
-    @GetMapping(value = "/")
+    @GetMapping(value = "/a")
     public String getHome(){
         String message = "Hello World";
         log.info(message);
